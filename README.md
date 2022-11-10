@@ -105,7 +105,7 @@ Type the following code to obtain the Joao’s token:
 curl.exe --location --request POST 'http://localhost:5001/api/v1/Auth/Login' --header 'Content-Type: application/json' --data-raw '{\"login\": \"joao\",\"password\": \"joaopassword\"}'
 
 That’s the new token for Joao: 
- ![Test Image 6](./readmeImg/Img-006.PNG) 
+ ![Test Image 7](./readmeImg/Img-007.PNG) 
 
 Now, let’s try to create a new credit with this token.
 
@@ -113,5 +113,5 @@ Replace the token in this command line with the new token (Joao’s token), but 
 
 curl.exe -v --location POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImpvYW8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSm_Do28gZGEgU2lsdmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI0ODEzNTg0NS0zY2Y3LTQ5NDItYWY1Ni1kMjFhYmMyZTVjMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJGdW5jaW9uYXJpbyIsImV4cCI6MTY2ODEwMjQ3NSwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.0YHE7-7m4qM6iyqRk_qUAlBLHTU8ytbgHDTxXi-acT4' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 1,\"valor\": 23,\"dataLancamento\": \"2022-11-07\"}'
 
-![Test Image 7](./readmeImg/Img-007.PNG) 
+![Test Image 8](./readmeImg/Img-008.PNG) 
  
