@@ -4,10 +4,13 @@ Challenge sent by Amaris
 
 ### Application “Fluxo de Caixa” (Cash Flow)
 This application was developed as a challenge exercise proposed by Amaris. 
-Objective: 
-	Receive the cash flow information and consolidate the balance per day.
+
+**Objective:**
+
+Receive the cash flow information and consolidate the balance per day.
 	
-	
+**My approach:**
+
 I chose .Net WebApi and C# to develop this challenge because it is the language that I have most skills.
 
 I used DDD in order to provide a best presentation and organization of my code.
