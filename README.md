@@ -29,13 +29,19 @@ For this WebApi was implemented Authentication and Authorization, only registere
 
 There are two different possible roles in this project “Admin” and “Funcionario” (employee), users with Role Admin can access everything, but users with role “Funcionario” can only access the consolidated report.
 
-User with role “Admin”:
-	Login: andre
-	Password: andrepassword
+**User with role “Admin”:**
 
-User with role “Funcionario”
-	Login: joao
-	Password: joaopassword
+   **Login:** andre
+
+   **Password:** andrepassword
+
+
+
+**User with role “Funcionario”**
+
+   **Login:** joao
+
+   **Password:** joaopassword
 
 
 ### How to test the application: 
@@ -71,7 +77,9 @@ Let’s follow the steps below:
 #### 3-	Now our container is created and already running, lets try to authenticate firstly with the user “andre”
 Type the following command for that:
 
-`curl.exe --location --request POST 'http://localhost:5001/api/v1/Auth/Login' --header 'Content-Type: application/json' --data-raw '{\"login\": \"andre\",\"password\": \"andrepassword\"}'`
+```
+curl.exe --location --request POST 'http://localhost:5001/api/v1/Auth/Login' --header 'Content-Type: application/json' --data-raw '{\"login\": \"andre\",\"password\": \"andrepassword\"}'
+```
 
 
 The application will return to us the information for an authenticated user just like this:
@@ -79,12 +87,16 @@ The application will return to us the information for an authenticated user just
 
 Let’s copy the token created during our authentication, and try to save a new credit, just reminding that you need to create your own token and replace it in the command line below:
 
-`curl.exe --location --request POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 1,\"valor\": 23,\"dataLancamento\": \"2022-11-07\"}'`
+```
+curl.exe --location --request POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 1,\"valor\": 23,\"dataLancamento\": \"2022-11-07\"}'
+```
 	This endpoint doesn’t return any information in case of success, it only returns HttpCode = 200.
 
 ### 4-	Let’s also create a debit using this same token, it will take one hour until it expires
 
-`curl.exe --location --request POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 2,\"valor\": 10,\"dataLancamento\": \"2022-11-07\"}'`
+```
+curl.exe --location --request POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 2,\"valor\": 10,\"dataLancamento\": \"2022-11-07\"}'
+```
 
 **Note:** In order to create a new Debit, it´s necessary change the value of the field “idTipoLancamento” from 1 to 2.
 
@@ -97,7 +109,9 @@ Your terminal should be like this:
 #### 5-	Now let’s check if our balance was correctly calculated, for that there is two endpoints that can be used,  ‘../api/v1/ConsultaConsolidado/ConsultarConsolidadoPorAno/2022' will filter only per year, showing all dates consolidated at this year, and you can also use ‘’ ../api/v1/ConsultaConsolidado/ConsultarConsolidadoPorAnoMes/2022/11’ where 2022 means the year and 11 means the month, so in this last endpoint you will get only the dates of the respective month.
 Type the following command to see the balance of the whole year
 
-`curl.exe --location --request GET 'http://localhost:5001/api/v1/ConsultaConsolidado/ConsultarConsolidadoPorAno/2022' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s'`
+```
+curl.exe --location --request GET 'http://localhost:5001/api/v1/ConsultaConsolidado/ConsultarConsolidadoPorAno/2022' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImFuZHJlIiwiaHR0cDovL3NjaGVtYXMueG1sc29hcC5vcmcvd3MvMjAwNS8wNS9pZGVudGl0eS9jbGFpbXMvbmFtZSI6IkFuZHLDqSBMdXoiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiJhZTkyZjUyYy1jNTI0LTRmMGYtOWY0YS1mY2UwYzkxNDNlOWYiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJBZG1pbiIsImV4cCI6MTY2ODEwMDI1OCwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.Hn1JlJhOI8-wmyBk4L_yVBbza6EO8xopqPsM7Apvs7s'
+```
 
 That’s our balance for the whole year, and as expected the balance between $23 (credit) and $10 (debit) is $13
  ![Test Image 5](./readmeImg/Img-005.PNG) 
@@ -109,7 +123,9 @@ Firstly, we should make que authentication again in order to obtain a new token 
 
 Type the following code to retrieve Joao’s token:
 
-`curl.exe --location --request POST 'http://localhost:5001/api/v1/Auth/Login' --header 'Content-Type: application/json' --data-raw '{\"login\": \"joao\",\"password\": \"joaopassword\"}'`
+```
+curl.exe --location --request POST 'http://localhost:5001/api/v1/Auth/Login' --header 'Content-Type: application/json' --data-raw '{\"login\": \"joao\",\"password\": \"joaopassword\"}'
+```
 
 That’s the new token for Joao: 
  ![Test Image 7](./readmeImg/Img-007.PNG) 
@@ -118,7 +134,9 @@ Now, let’s try to create a new credit with this token.
 
 Replace the token in this command line with the new token (Joao’s token), but this time we will add “-v” argument to the command line in order to be able to see the bad request returning with 403 - Forbidden:
 
-`curl.exe -v --location POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImpvYW8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSm_Do28gZGEgU2lsdmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI0ODEzNTg0NS0zY2Y3LTQ5NDItYWY1Ni1kMjFhYmMyZTVjMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJGdW5jaW9uYXJpbyIsImV4cCI6MTY2ODEwMjQ3NSwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.0YHE7-7m4qM6iyqRk_qUAlBLHTU8ytbgHDTxXi-acT4' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 1,\"valor\": 23,\"dataLancamento\": \"2022-11-07\"}'`
+```
+curl.exe -v --location POST 'http://localhost:5001/api/v1/Lancamentos/CriarLancamento' --header 'Authorization: Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1laWRlbnRpZmllciI6ImpvYW8iLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9uYW1lIjoiSm_Do28gZGEgU2lsdmEiLCJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9zaWQiOiI0ODEzNTg0NS0zY2Y3LTQ5NDItYWY1Ni1kMjFhYmMyZTVjMTUiLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJGdW5jaW9uYXJpbyIsImV4cCI6MTY2ODEwMjQ3NSwiaXNzIjoiU2Vydmlkb3JGbHV4b0RlQ2FpeGEifQ.0YHE7-7m4qM6iyqRk_qUAlBLHTU8ytbgHDTxXi-acT4' --header 'Content-Type: application/json' --data-raw '{\"idTipoLancamento\": 1,\"valor\": 23,\"dataLancamento\": \"2022-11-07\"}'
+```
 
 ![Test Image 8](./readmeImg/Img-008.PNG) 
  
