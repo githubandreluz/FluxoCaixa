@@ -31,21 +31,17 @@ There are two different possible roles in this project “Admin” and “Funcio
 
 **User with role “Admin”:**
 
-   **Login:** 
-   > andre
+   > **Login:** andre
 
-   **Password:** 
-   > andrepassword
+   > **Password:** andrepassword
 
 
 
 **User with role “Funcionario”**
 
-   **Login:** 
-   > joao
+   > **Login:** joao
 
-   **Password:** 
-   > joaopassword
+   > **Password:** joaopassword
 
 
 ### How to test the application: 
