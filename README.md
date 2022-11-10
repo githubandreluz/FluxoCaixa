@@ -31,17 +31,21 @@ There are two different possible roles in this project “Admin” and “Funcio
 
 **User with role “Admin”:**
 
-   **Login:** andre
+   **Login:** 
+   > andre
 
-   **Password:** andrepassword
+   **Password:** 
+   > andrepassword
 
 
 
 **User with role “Funcionario”**
 
-   **Login:** joao
+   **Login:** 
+   > joao
 
-   **Password:** joaopassword
+   **Password:** 
+   > joaopassword
 
 
 ### How to test the application: 
@@ -100,7 +104,7 @@ curl.exe --location --request POST 'http://localhost:5001/api/v1/Lancamentos/Cri
 
 **Note:** In order to create a new Debit, it´s necessary change the value of the field “idTipoLancamento” from 1 to 2.
 
-After those steps above we should have one credit of $23 and one debit of $10 for the same day, so the balance of the day should be
+After those steps above we should have one credit of $23 and one debit of $10 for the same day, so the balance of the day should be $13.
 
 Your terminal should be like this: 
  ![Test Image 4](./readmeImg/Img-004.PNG) 
