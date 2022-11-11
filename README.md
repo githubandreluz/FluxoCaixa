@@ -142,5 +142,8 @@ curl.exe -v --location POST 'http://localhost:5001/api/v1/Lancamentos/CriarLanca
  
  
  ### Tests
+ 
 Use Visual Studio to run all tests 
+
+
  ![Test Image 9](./readmeImg/Img-009.PNG) 
